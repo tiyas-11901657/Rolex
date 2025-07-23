@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Profile Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #555;
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+        .section:nth-child(4) { animation-delay: 0.3s; }
+        .section:nth-child(5) { animation-delay: 0.4s; }
+        .section:nth-child(6) { animation-delay: 0.5s; }
+        .section:nth-child(7) { animation-delay: 0.6s; }
+        
+        @keyframes fadeInUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .icon {
+            font-size: 1.2em;
+            color: #667eea;
+        }
+        
+        .research-item, .pub-item, .education-item, .experience-item {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #667eea;
+        }
+        
+        .research-item:hover, .pub-item:hover, .education-item:hover, .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .item-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .item-meta {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .item-description {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-category {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: scale(1.05);
+        }
+        
+        .skill-category h3 {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .skill-list {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .skill-list li {
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .achievement-card {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff6b6b;
+        }
+        
+        .achievement-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            margin: 10px;
+            font-weight: bold;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+        
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+        
+        .shape:nth-child(1) { width: 80px; height: 80px; left: 10%; animation-delay: 0s; }
+        .shape:nth-child(2) { width: 120px; height: 120px; left: 70%; animation-delay: -5s; }
+        .shape:nth-child(3) { width: 60px; height: 60px; left: 30%; animation-delay: -10s; }
+        .shape:nth-child(4) { width: 100px; height: 100px; left: 80%; animation-delay: -15s; }
+        
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    
+    <div class="container">
+        <div class="header">
+            <div class="profile-img">YN</div>
+            <h1>Your Name</h1>
+            <p class="subtitle">Research Scientist & Academic Professional</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="icon">📧</span>
+                    <span>your.email@institution.edu</span>
+                </div>
+                <div class="contact-item">
+                    <span class="icon">🌐</span>
+                    <span>yourwebsite.com</span>
+                </div>
+                <div class="contact-item">
+                    <span class="icon">📍</span>
+                    <span>Your City, Country</span>
+                </div>
+                <div class="contact-item">
+                    <span class="icon">🔗</span>
+                    <span>ORCID: 0000-0000-0000-0000</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2><span class="icon">👤</span>About Me</h2>
+            <p style="font-size: 1.1em; color: #555; line-height: 1.8;">
+                I am a passionate researcher with [X] years of experience in [Your Field]. My research focuses on [brief description of your main research areas]. I am committed to advancing knowledge through rigorous scientific inquiry and collaborative research efforts. My work has contributed to understanding [specific contributions] and has been published in leading journals in the field.
+            </p>
+        </div>
+        
+        <div class="section">
+            <h2><span class="icon">🎓</span>Education</h2>
+            <div class="education-item">
+                <div class="item-title">Ph.D. in [Your Field]</div>
+                <div class="item-meta">[University Name] • [Year - Year]</div>
+                <div class="item-description">
+                    Dissertation: "[Your Dissertation Title]"<br>
+                    Advisor: [Advisor Name]<br>
+                    Key Research: [Brief description of your doctoral research]
+                </div>
+            </div>
+            <div class="education-item">
+                <div class="item-title">Master's in [Your Field]</div>
+                <div class="item-meta">[University Name] • [Year - Year]</div>
+                <div class="item-description">
+                    Thesis: "[Your Thesis Title]"<br>
+                    Relevant Coursework: [Key courses related to your research]
+                </div>
+            </div>
+            <div class="education-item">
+                <div class="item-title">Bachelor's in [Your Field]</div>
+                <div class="item-meta">[University Name] • [Year - Year]</div>
+                <div class="item-description">
+                    Graduated [Magna Cum Laude/Summa Cum Laude/etc.]<br>
+                    Senior Project: "[Your Senior Project Title]"
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2><span class="icon">💼</span>Research Experience</h2>
+            <div class="experience-item">
+                <div class="item-title">Senior Research Scientist</div>
+                <div class="item-meta">[Institution/Company Name] • [Year] - Present</div>
+                <div class="item-description">
+                    Leading research initiatives in [specific area]. Key responsibilities include [list main responsibilities]. Notable achievements: [specific achievements or discoveries].
+                </div>
+            </div>
+            <div class="experience-item">
+                <div class="item-title">Postdoctoral Research Fellow</div>
+                <div class="item-meta">[Institution Name] • [Year] - [Year]</div>
+                <div class="item-description">
+                    Conducted advanced research in [specific area] under the mentorship of [Mentor Name]. Published [number] papers and secured [amount] in research funding.
+                </div>
+            </div>
+            <div class="experience-item">
+                <div class="item-title">Graduate Research Assistant</div>
+                <div class="item-meta">[University Name] • [Year] - [Year]</div>
+                <div class="item-description">
+                    Supported research projects in [area], developed [specific skills/techniques], and contributed to [number] publications.
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2><span class="icon">📚</span>Publications</h2>
+            <div class="pub-item">
+                <div class="item-title">[Paper Title 1]</div>
+                <div class="item-meta">[Authors] • [Journal Name] • [Year]</div>
+                <div class="item-description">
+                    [Brief description of the paper and its significance. Include DOI, citation count if available, and impact.]
+                </div>
+            </div>
+            <div class="pub-item">
+                <div class="item-title">[Paper Title 2]</div>
+                <div class="item-meta">[Authors] • [Journal Name] • [Year]</div>
+                <div class="item-description">
+                    [Brief description of the paper and its significance. Include DOI, citation count if available, and impact.]
+                </div>
+            </div>
+            <div class="pub-item">
+                <div class="item-title">[Paper Title 3]</div>
+                <div class="item-meta">[Authors] • [Conference/Journal Name] • [Year]</div>
+                <div class="item-description">
+                    [Brief description of the paper and its significance. Include DOI, citation count if available, and impact.]
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2><span class="icon">🔬</span>Current Research Projects</h2>
+            <div class="research-item">
+                <div class="item-title">[Project Title 1]</div>
+                <div class="item-meta">Funding: [Grant/Funding Source] • [Amount] • [Duration]</div>
+                <div class="item-description">
+                    [Detailed description of the research project, its objectives, methodology, and expected outcomes. Include your role and collaborators.]
+                </div>
+            </div>
+            <div class="research-item">
+                <div class="item-title">[Project Title 2]</div>
+                <div class="item-meta">Collaboration with [Institution/Researcher] • [Duration]</div>
+                <div class="item-description">
+                    [Description of the collaborative research project, your contributions, and preliminary findings or expected results.]
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2><span class="icon">🛠️</span>Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Research Methods</h3>
+                    <ul class="skill-list">
+                        <li>Quantitative Analysis</li>
+                        <li>Qualitative Research</li>
+                        <li>Statistical Modeling</li>
+                        <li>Experimental Design</li>
+                        <li>Data Collection</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <ul class="skill-list">
+                        <li>Python/R Programming</li>
+                        <li>Machine Learning</li>
+                        <li>Data Visualization</li>
+                        <li>Database Management</li>
+                        <li>Cloud Computing</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Laboratory Skills</h3>
+                    <ul class="skill-list">
+                        <li>[Specific Technique 1]</li>
+                        <li>[Specific Technique 2]</li>
+                        <li>[Equipment/Instrument]</li>
+                        <li>Protocol Development</li>
+                        <li>Quality Control</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <ul class="skill-list">
+                        <li>Project Management</li>
+                        <li>Team Leadership</li>
+                        <li>Scientific Writing</li>
+                        <li>Public Speaking</li>
+                        <li>Grant Writing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2><span class="icon">🏆</span>Awards & Recognition</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">🥇</div>
+                    <h3>[Award Name]</h3>
+                    <p>[Institution/Organization]</p>
+                    <p>[Year]</p>
+                    <p>[Brief description of the award significance]</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">💰</div>
+                    <h3>[Grant/Fellowship Name]</h3>
+                    <p>[Funding Agency]</p>
+                    <p>[Amount] • [Year]</p>
+                    <p>[Purpose of the funding]</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">📜</div>
+                    <h3>[Recognition/Honor]</h3>
+                    <p>[Organization]</p>
+                    <p>[Year]</p>
+                    <p>[Reason for recognition]</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2><span class="icon">🤝</span>Professional Service</h2>
+            <div class="experience-item">
+                <div class="item-title">Journal Reviewer</div>
+                <div class="item-meta">[Journal Names] • [Years]</div>
+                <div class="item-description">
+                    Regular reviewer for leading journals in [field]. Reviewed [number] papers annually, contributing to the peer-review process.
+                </div>
+            </div>
+            <div class="experience-item">
+                <div class="item-title">Conference Organizer</div>
+                <div class="item-meta">[Conference Name] • [Year]</div>
+                <div class="item-description">
+                    Served as [role] for [conference description]. Responsibilities included [specific duties].
+                </div>
+            </div>
+        </div>
+        
+        <div class="section" style="text-align: center;">
+            <h2><span class="icon">📞</span>Connect With Me</h2>
+            <p style="margin-bottom: 30px;">Interested in collaboration or want to learn more about my research? Let's connect!</p>
+            <a href="mailto:your.email@institution.edu" class="btn">Email Me</a>
+            <a href="#" class="btn">Download CV</a>
+            <a href="#" class="btn">Research Gate</a>
+            <a href="#" class="btn">Google Scholar</a>
+        </div>
+    </div>
+</body>
+</html>
